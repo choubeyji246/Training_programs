@@ -6,7 +6,15 @@ class Node:
 class linkedList:
     def __init__(self):
         self.head=None
-
+    def reverse(self):
+        prev=None
+        itr=self.head
+        while itr:
+            nxt=itr.nxt
+            itr.nxt=prev
+            prev=itr
+            itr=nxt
+        self.head=prev
 
     def insert_begining(self,data):   
         node=Node(data,self.head)
@@ -106,6 +114,8 @@ ll=linkedList()
 #ll.insert_end(9)
 ll.insert_values([1,2,3,4])
 print(ll.get_len())
+ll.print_list()
+ll.reverse()
 ll.print_list()
 ll.remove_at(2)
 print(ll.get_len())
